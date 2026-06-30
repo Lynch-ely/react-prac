@@ -3,13 +3,15 @@ import Items from './Items';
 import FruitsVeggies from './FruitsVeggies';
 import CounterButton from './CounterButton';
 import Button from './Button';
+import ColorPicker from './ColorPicker';
 
 function App() {
   
   return (
     <>
-      <div>
-        <Button />
+      <div className=''>
+        <ColorPicker />
+        {/* <Button /> */}
         {/* <CounterButton /> */}
         {/* <FruitsVeggies /> */}
         {/* <Items /> */}
