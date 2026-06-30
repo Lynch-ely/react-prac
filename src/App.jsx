@@ -4,13 +4,15 @@ import FruitsVeggies from './FruitsVeggies';
 import CounterButton from './CounterButton';
 import Button from './Button';
 import ColorPicker from './ColorPicker';
+import Updater from './Updater';
 
 function App() {
   
   return (
     <>
-      <div className=''>
-        <ColorPicker />
+      <div className='flex justify-center items-center min-h-screen'>
+        <Updater />
+        {/* <ColorPicker /> */}
         {/* <Button /> */}
         {/* <CounterButton /> */}
         {/* <FruitsVeggies /> */}
