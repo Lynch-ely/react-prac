@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import Task from './Task';
 import { IoIosClose } from "react-icons/io";
+import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
+import { IoIosCheckboxOutline } from "react-icons/io";
 
 function ToDoList() {
     const [taskInput, setTaskInput] = useState('');
     const [tasks, setTasks] = useState([]);
+    const [checked, setChecked] = useState(false);
 
     const handleAdd = () => {
         if(taskInput !== ''){
@@ -13,8 +16,13 @@ function ToDoList() {
         }
     }
 
+    const handleCheck = () => {
+      setChecked(!checked);
+      console.log(checked);
+    }
+
     const deleteTask = (index) => {
-        setTasks(tasks.filter((__, i) => i !== index));
+      setTasks(tasks.filter((__, i) => i !== index));
     }
 
   return (
@@ -33,7 +41,15 @@ function ToDoList() {
       <div className='space-y-3'>
         {tasks.map((task, index) => (
                     <div key={index} className='border border-slate-200 px-5 py-3 rounded-lg flex justify-between'>
-                        <p>{task}</p>
+                        <div className='flex gap-3 items-center'>
+                          {checked ? 
+                            <IoIosCheckboxOutline onClick={handleCheck} size={18}/>
+                           : 
+                           <MdOutlineCheckBoxOutlineBlank onClick={handleCheck} size={18}/>
+                          }
+                          
+                          <p className={`${checked ? 'line-through' : null}`}>{task}</p>
+                        </div>
                         <IoIosClose size={25} onClick={() => deleteTask(index)}/>
                     </div>
                 ))}
